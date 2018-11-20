@@ -1,0 +1,5 @@
+FROM ansible/centos7-ansible:stable
+EXPOSE 22
+EXPOSE 80
+EXPOSE 6379
+EXPOSE 6380
