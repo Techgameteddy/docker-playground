@@ -1,0 +1,51 @@
+[all:vars]
+log_base_path=/tmp
+test_environment=true
+scope=boca
+
+[h5-java:vars]
+user=booking
+
+[h5-booking:vars]
+user=booking
+
+[h5-api:vars]
+user=booking
+
+[h5-php]
+php-dev   env=dev   ansible_host=localhost ansible_port=2021
+php-stage env=stage ansible_host=localhost ansible_port=2022
+php-uat   env=uat   ansible_host=localhost ansible_port=2023
+
+[h5-java:children]
+h5-booking
+h5-api
+
+[h5-booking]
+java-dev   env=dev   ansible_host=localhost ansible_port=2200
+java-stage env=stage ansible_host=localhost ansible_port=2025
+java-uat   env=uat   ansible_host=localhost ansible_port=2026
+
+[h5-api]
+api-java-dev   env=dev   ansible_host=localhost ansible_port=2200
+api-java-stage env=stage ansible_host=localhost ansible_port=2028
+api-java-uat   env=uat   ansible_host=localhost ansible_port=2029
+
+[h5-pdf:children]
+h5-java
+
+[net-docks]
+dolly_one image="tmeralus/ansible-node" ansible_connection=docker
+dolly_two image="tmeralus/ansible-node" ansible_connection=docker
+dolly_three image="tmeralus/ansible-node" ansible_connection=docker
+dolly_four image="tmeralus/ansible-node" ansible_connection=docker
+dolly_five image="tmeralus/ansible-node" ansible_connection=docker
+
+[mysql_cluster_mgm]
+dolly_one image="tmeralus/ansible-node" ansible_connection=docker
+
+[mysql_cluster_data]
+dolly_two image="tmeralus/ansible-node" ansible_connection=docker
+
+[mysql_cluster_sql]
+dolly_three image="tmeralus/ansible-node" ansible_connection=docker
