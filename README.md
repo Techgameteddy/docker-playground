@@ -62,3 +62,6 @@ BSD
 
 Author Information
  Twitter: @TechGameTeddy
+
+ Inspired by: Chris Meyers
+ https://www.ansible.com/blog/testing-ansible-roles-with-docker
