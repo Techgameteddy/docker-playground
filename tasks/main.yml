@@ -1,13 +1,14 @@
 - hosts: localhost
   vars:
     inventory:
-      - name: dolly_one
-      - name: dolly_two
-      - name: dolly_three
-      - name: dolly_four
-      - name: dolly_five
+      - name: dolly01
+      - name: dolly02
+      - name: dolly03
+      - name: dolly04
+      - name: dolly05
+      - name: dolly06
     provision_docker_inventory: "{{inventory}}"
-    provision_docker_inventory_group: [ 'dolly_one', 'dolly_two', 'dolly_three', 'dolly_four', 'dolly_five', ]
+    provision_docker_inventory_group: [ 'dolly01', 'dolly02', 'dolly03', 'dolly04', 'dolly05', 'dolly06', ]
     provision_docker_groups: [ 'net-docks', ]
     provision_docker_privileged: true
     provision_docker_network: null
