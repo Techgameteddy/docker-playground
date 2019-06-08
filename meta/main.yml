@@ -26,4 +26,4 @@ galaxy_info:
     - provision
     - provisioning
     - container
-dependencies: [ 'docker', ]
+dependencies: []
