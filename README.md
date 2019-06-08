@@ -55,6 +55,9 @@ run the following command
 
  ansible-playbook -i inventory/local roles/ansible-docker-playground/tasks/main.yml
 
+REMINDER
+Docker should be running a process in the foreground in your container and will be spawned as PID 1 within the container's pid namespace.
+Docker is designed for process isolation, not for OS virtualization, so there are no OS processes and daemons running inside the container (like systemd, cron, syslog, etc), only your entrypoint or command you run.
 
 License
 ---
