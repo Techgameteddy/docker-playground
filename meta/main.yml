@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  author: Tedley Mearlus
+  role_name: docker-playground 
+  author: tmeralus
   description: Provision docker containers using inventory for testing ansible roles
   license: license (GPLv2, CC-BY, etc)
   min_ansible_version: 2.4
