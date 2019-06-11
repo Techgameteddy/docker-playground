@@ -68,8 +68,8 @@
       changed_when: false
   when: provision_docker_use_docker_connection
 
-- name: Make sure able to connect to hosts
-  raw: echo Hello
-  delegate_to: "{{ item['name'] }}"
-  with_items: "{{ provision_docker_inventory }}"
-  changed_when: false
+#- name: Make sure able to connect to hosts
+#  raw: echo Hello
+#  delegate_to: "{{ item['name'] }}"
+#  with_items: "{{ provision_docker_inventory }}"
+#  changed_when: false
