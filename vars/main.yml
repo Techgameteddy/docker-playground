@@ -1,0 +1,13 @@
+---
+provision_docker_image_default: "tmeralus/ansible-node"
+provision_docker_inventory: "" 
+provision_docker_inventory_group: [ 'dolly01', 'dolly02', 'dolly03', 'dolly04', 'dolly05', 'dolly06', ]
+provision_docker_groups: [ 'net-docks', ]
+provision_docker_privileged: true
+provision_docker_network: null
+provision_docker_ip: "127.0.0.1"
+provision_docker_ssh_user: "ansible"
+provision_docker_ssh_pass: "docker"
+provision_docker_use_tls: true
+provision_docker_state: "started"
+provision_docker_use_docker_connection: true
