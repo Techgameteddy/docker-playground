@@ -1,6 +1,6 @@
 ---
 provision_docker_inventory: ""
-provision_docker_inventory_group: [ 'dolly01', 'dolly02', 'dolly03', 'dolly04', 'dolly05', ]
+provision_docker_inventory_group: [ 'dollydock01', 'dollydock02', 'dollydock03', 'dollydock04', 'dollydock05', ]
 provision_docker_groups: [ 'net-docks', ]
 provision_docker_privileged: true
 provision_docker_network: null
