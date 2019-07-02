@@ -3,7 +3,7 @@
     # |default(random_hostname)
     name: "{{ item }}"
     image: "{{ hostvars[item].image|default(provision_docker_image_default) }}"
-    privileged: "{{ hostvars[item].privileged|default(provision_docker_privileged) | bool}}"
+    privileged: "{{ hostvars[item].privileged|default(provision_docker_privileged) | bool }}"
     state: "{{ hostvars[item].provision_docker_state | default(provision_docker_state) }}"
     restart: "{{ hostvars[item].restart|default(True) }}"
     tls: "{{ provision_docker_use_tls }}"
