@@ -8,7 +8,7 @@
     restart: "{{ hostvars[item].restart|default(True) }}"
     tls: "{{ provision_docker_use_tls }}"
     stop_timeout: 1
-    tty: "{{provision_docker_use_docker_connection | bool}}"
+    tty: "{{ provision_docker_use_docker_connection | bool }}"
     exposed: "{{ hostvars[item].expose|default(['1-65535']) }}"
     ports: "{{ hostvars[item].ports|default(omit) }}"
     command: "{{ hostvars[item].command|default(omit) }}"
@@ -67,9 +67,3 @@
       with_indexed_items: "{{ provision_docker_inventory_group }}"
       changed_when: false
   when: provision_docker_use_docker_connection
-
-#- name: Make sure able to connect to hosts
-#  raw: echo Hello
-#  delegate_to: "{{ item['name'] }}"
-#  with_items: "{{ provision_docker_inventory }}"
-#  changed_when: false
