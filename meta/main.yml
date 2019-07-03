@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: docker-playground
+  role_name: docker.playground
   author: tmeralus
   description: Provision docker containers using inventory for testing ansible roles
   license: license (GPLv3,)
