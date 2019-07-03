@@ -2,7 +2,7 @@
   docker_network:
     name: "{{ provision_docker_network }}"
 
-- name: 1 Bring up inventory group of hosts
+- name: Bring up inventory group of hosts
   docker_container:
     # |default(random_hostname)
     name: "{{ item }}"
