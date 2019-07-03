@@ -1,7 +1,6 @@
-- name: Ensure required vars are defined
-  fail: msg="provision_docker_inventory_group or provision_docker_inventory is required"
-  when: "provision_docker_inventory_group is not defined and provision_docker_inventory is not defined"
 
+# Install dependancies
 - import_tasks: "setup_requirements.yml"
+#- import_tasks: "tasks/dock_network.yml"
 - import_tasks: "tasks/dock_inventory.yml"
   when: (provision_docker_inventory_group | length) > 0
