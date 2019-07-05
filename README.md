@@ -53,7 +53,7 @@ Test Playbook
 To run the playbook and spin up 5 docker containers
 run the following command
 
- ansible-playbook -i inventory/local roles/ansible-docker-playground/tasks/main.yml
+ansible-playbook -i inventory/local roles/ansible-docker-playground/playbook.yml
 
 REMINDER
 Docker should be running a process in the foreground in your container and will be spawned as PID 1 within the container's pid namespace.
