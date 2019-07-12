@@ -1,7 +1,7 @@
 ---
 - name: Ensure required vars are defined
-  fail: msg="provision_docker_inventory_group or provision_docker_inventory is required"
-  when: "provision_docker_inventory_group is not defined and provision_docker_inventory is not defined"
+  fail: msg="docker_inventory_group or docker_inventory is required"
+  when: "docker_inventory_group is not defined and docker_inventory is not defined"
 
 - name: Gather facts
   setup:
@@ -12,9 +12,9 @@
     state: present
   when: ansible_os_family == "RedHat"
 
-#- name: Install docker packages
-#  package:
-#    name: [ 'docker.io', 'docker-compose', 'docker-containerd', ]
-#    state: present
-#  when: ansible_os_family == "Debian"
+- name: Install docker packages
+  package:
+    name: [ 'docker.io', 'docker-compose', 'docker-containerd', ]
+    state: present
+  when: ansible_os_family == "Debian"
 #  become: true

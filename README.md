@@ -19,7 +19,7 @@ packages:
 
 Role Variables
 
- provision_docker_inventory variable names and provision_docker_inventory_group
+ docker_inventory variable names and docker_inventory_group
  must match names in local inventory file as well.
 
  inventory:
@@ -28,17 +28,17 @@ Role Variables
  - name: dolly_three
  - name: dolly_four
  - name: dolly_five
- provision_docker_inventory: "{{inventory}}"
- provision_docker_inventory_group: [ 'dolly_one', 'dolly_two', 'dolly_three', 'dolly_four', 'dolly_five', ]
- provision_docker_groups: [ 'net-docks', ]
- provision_docker_privileged: true
- provision_docker_network: null
- provision_docker_ip: "127.0.0.1"
- provision_docker_ssh_user: "ansible"
- provision_docker_ssh_pass: "docker"
- provision_docker_use_tls: true
- provision_docker_state: "started"
- provision_docker_use_docker_connection: true
+ docker_inventory: "{{inventory}}"
+ docker_inventory_group: [ 'dolly_one', 'dolly_two', 'dolly_three', 'dolly_four', 'dolly_five', ]
+ docker_groups: [ 'net-docks', ]
+ docker_privileged: true
+ docker_network: null
+ docker_ip: "127.0.0.1"
+ docker_ssh_user: "ansible"
+ docker_ssh_pass: "docker"
+ docker_use_tls: true
+ docker_state: "started"
+ docker_use_docker_connection: true
 
 
 DEPENDENCIES

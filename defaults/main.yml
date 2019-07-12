@@ -1,23 +1,27 @@
 ---
-provision_docker_inventory: ""
-provision_docker_inventory_group: [ 'dollyvm01', 'dollyvm02', 'dollyvm03', 'dollyvm04', 'dollyvm05', 'dollyvm06', ]
-provision_docker_groups: [ 'net-docks', ]
-provision_docker_privileged: true
-provision_docker_network: docknet
-provision_docker_ip: "127.0.0.1"
-provision_docker_restart: true
-provision_docker_ssh_user: "ansible"
-provision_docker_ssh_pass: "docker"
-provision_docker_use_tls: true
-provision_docker_state: started
-provision_docker_exposed: 1-65535
-provision_docker_ports: ""
-provision_docker_command: ""
-provision_docker_env: ""
-provision_docker_links: ""
-provision_docker_network_mode: "{{ hostvars[item].network_mode|default(provision_docker_network) }}"
-provision_docker_volumes: ""
-provision_docker_volumes_from: ""
-provision_docker_pull: ""
-provision_docker_use_docker_connection: true
-provision_docker_image_default: "tmeralus/ansible-node"
+docker_inventory: ""
+docker_inventory_group: [ 'dollydk01', 'dollydk02', 'dollydk03', 'dollydk04', 'dollydk05', 'dollydk06', ]
+docker_groups: [ 'net-docks', ]
+docker_privileged: true
+docker_network: docknet
+docker_ip: "127.0.0.1"
+docker_restart: true
+docker_ssh_user: "ansible"
+docker_ssh_pass: "docker"
+docker_use_tls: true
+docker_state: started
+docker_exposed: 1-65535
+docker_ports: ""
+docker_command: ""
+docker_env: ""
+docker_links: ""
+docker_network_mode: "{{ hostvars[item].network_mode|default(docker_network) }}"
+docker_volumes: ""
+docker_volumes_from: ""
+docker_pull: ""
+docker_use_docker_connection: true
+docker_image_default: "tmeralus/ansible-node"
+docker_ipam_config:
+docker_subnet: 172.18.0.0/16
+docker_gateway: 172.18.0.1
+docker_iprange: 172.18.0.0/26
