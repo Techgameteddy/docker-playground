@@ -5,16 +5,3 @@
 
 - name: Gather facts
   setup:
-
-- name: Install libselinux-python packages
-  package:
-    name: libselinux-python
-    state: present
-  when: ansible_os_family == "RedHat"
-
-- name: Install docker packages
-  package:
-    name: [ 'docker.io', 'docker-compose', 'docker-containerd', ]
-    state: present
-  when: ansible_os_family == "Debian"
-#  become: true
