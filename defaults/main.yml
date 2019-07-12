@@ -3,13 +3,21 @@ provision_docker_inventory: ""
 provision_docker_inventory_group: [ 'dollyvm01', 'dollyvm02', 'dollyvm03', 'dollyvm04', 'dollyvm05', 'dollyvm06', ]
 provision_docker_groups: [ 'net-docks', ]
 provision_docker_privileged: true
-provision_docker_network: docknet1
+provision_docker_network: docknet
 provision_docker_ip: "127.0.0.1"
+provision_docker_restart: true
 provision_docker_ssh_user: "ansible"
 provision_docker_ssh_pass: "docker"
 provision_docker_use_tls: true
 provision_docker_state: started
+provision_docker_exposed: 1-65535
+provision_docker_ports: ""
+provision_docker_command: ""
+provision_docker_env: ""
+provision_docker_links: ""
+provision_docker_network_mode: "{{ hostvars[item].network_mode|default(provision_docker_network) }}"
+provision_docker_volumes: ""
+provision_docker_volumes_from: ""
+provision_docker_pull: ""
 provision_docker_use_docker_connection: true
-provision_docker_volumes:
-provision_docker_volumes_from:
 provision_docker_image_default: "tmeralus/ansible-node"
