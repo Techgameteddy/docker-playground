@@ -1,10 +1,6 @@
 - name: Create a Docker Network
   docker_network:
-    name: "{{ docker_network }}"
-    ipam_config:
-      - subnet: "{{ docker_subnet }}"
-        gateway: "{{ docker_gateway }}"
-        iprange: "{{ docker_iprange }}"
+    name: "{{ docker_network }}" 
 
 - name: Bring up inventory group of hosts
   docker_container:
@@ -19,7 +15,6 @@
     ports: "{{ docker_ports }}"
     network_mode: "{{ docker_network }}"
     volumes: "{{ docker_volumes }}"
-    volumes_from: "{{ docker_volumes_from }}"
     restart: "{{ docker_restart|default(omit) }}"
     pull: "{{ docker_pull|default(omit) }}"
     command: "{{ docker_command|default(omit) }}"

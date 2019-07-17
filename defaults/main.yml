@@ -9,7 +9,6 @@ docker_state: started
 docker_exposed: 1-65535
 docker_ports: ""
 docker_volumes: ""
-docker_volumes_from: ""
 docker_restart: 0
 docker_pull: ""
 docker_command: ""
@@ -17,6 +16,6 @@ docker_links: ""
 docker_use_docker_connection: true
 docker_image_default: "tmeralus/ansible-node"
 docker_ipam_config:
-docker_subnet: 172.18.0.0/16
-docker_gateway: 172.18.0.1
-docker_iprange: 172.18.0.0/26
+docker_subnet: 127.18.0.0/16
+docker_gateway: 127.18.0.1
+docker_iprange: 127.18.0.0/26

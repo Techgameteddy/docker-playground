@@ -8,9 +8,9 @@
     - docker_use_tls: true
     - docker_state: started
     - docker_exposed: 1-65535
-    - docker_ports: ""
-    - docker_volumes: ""
-    - docker_volumes_from: ""
+    - docker_ports: "22"
+    - docker_volumes: "/tmp/"
+    - docker_volumes_from: "/tmp/"
     - docker_restart: 0
     - docker_pull: 0
     - docker_command: ""
