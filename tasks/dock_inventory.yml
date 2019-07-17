@@ -1,6 +1,6 @@
 - name: Create a Docker Network
   docker_network:
-    name: "{{ docker_network }}" 
+    name: "{{ docker_network }}"
 
 - name: Bring up inventory group of hosts
   docker_container:
@@ -9,7 +9,7 @@
     privileged: "{{ docker_privileged }}"
     state: "{{ docker_state }}"
     tls: "{{ docker_use_tls }}"
-    stop_timeout: 1
+    stop_timeout: "{{ docker_stop_timeout }}"
     tty: "{{ docker_use_docker_connection }}"
     exposed: "{{ docker_exposed }}"
     ports: "{{ docker_ports }}"
