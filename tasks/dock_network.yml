@@ -1,3 +1,25 @@
+- name: Create a Docker Network
+  docker_network:
+    name: "{{ docker_network }}"
+
+- name: Allow {{ docker_network }} Interface on Localhost
+  firewalld:
+    zone: public
+    interface: {{ docker_network }}
+    permanent: yes
+    state: enabled
+  delegate_to: localhost
+
+- name: Allow Docker Network on Localhost
+  firewalld:
+    port: 4243/tcp
+    permanent: yes
+    state: disabled
+  delegate_to: localhost
+
+firewall-cmd --permanent --zone=trusted --add-interface=docker0
+firewall-cmd --permanent --zone=trusted --add-port=4243/tcp
+
 - name: Bring up inventory group of hosts
   docker_container:
     name: "{{ item }}"
