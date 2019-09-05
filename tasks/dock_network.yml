@@ -2,39 +2,12 @@
   docker_network:
     name: "{{ docker_network }}"
 
-- name: Allow {{ docker_network }} Interface on Localhost
-  firewalld:
-    zone: public
-    interface: {{ docker_network }}
-    permanent: yes
-    state: enabled
+- name: add port 4243 to localhost
+  iptables:
+   chain: INPUT
+   protocol: tcp
+   jump: ACCEPT
+   destination_port: 4243
   delegate_to: localhost
-
-- name: Allow Docker Network on Localhost
-  firewalld:
-    port: 4243/tcp
-    permanent: yes
-    state: disabled
-  delegate_to: localhost
-
-firewall-cmd --permanent --zone=trusted --add-interface=docker0
-firewall-cmd --permanent --zone=trusted --add-port=4243/tcp
-
-- name: Bring up inventory group of hosts
-  docker_container:
-    name: "{{ item }}"
-    image: "{{ docker_image_default }}"
-    privileged: "{{ docker_privileged }}"
-    state: "{{ docker_state }}"
-    tls: "{{ docker_use_tls }}"
-    stop_timeout: "{{ docker_stop_timeout }}"
-    tty: "{{ docker_use_docker_connection }}"
-    exposed: "{{ docker_exposed }}"
-    ports: "{{ docker_ports }}"
-    network_mode: "{{ docker_network }}"
-    volumes: "{{ docker_volumes }}"
-    restart: "{{ docker_restart|default(omit) }}"
-    pull: "{{ docker_pull|default(omit) }}"
-    command: "{{ docker_command|default(omit) }}"
-    links: "{{ docker_links|default(omit) }}"
-  with_items: "{{ docker_inventory_group }}"
+  become: true
+  ignore_errors: true
