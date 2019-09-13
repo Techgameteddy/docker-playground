@@ -10,12 +10,25 @@ docker_use_docker_connection: true
 docker_exposed: 1-65535
 docker_ports: "22"
 docker_network: docknet
+docker_network_loop: [ 'docknet1', 'docknet2', 'docknet3', 'docknet4', 'docknet5', 'docknet6', ]
+docker_network_mode: host
 docker_volumes: "/tmp"
 docker_restart: 0
 docker_pull: 0
 docker_command: ""
-docker_links: ""
 docker_ip: "127.0.0.1"
 docker_subnet: 127.0.0.0/16
 docker_gateway: 127.0.0.1
-docker_iprange: 127.0.0.0/26
+docker_iprange: [ '127.0.0.251', '127.0.0.252', '127.0.0.253', '127.0.0.254', '127.0.0.255', '127.0.0.256', ]
+#  - { name: 'dollydk01', groups: '127.0.0.251' }
+#  - { name: 'dollydk02', groups: '127.0.0.252' }
+#  - { name: 'dollydk03', groups: '127.0.0.253' }
+#  - { name: 'dollydk04', groups: '127.0.0.254' }
+#  - { name: 'dollydk05', groups: '127.0.0.255' }
+#  - { name: 'dollydk06', groups: '127.0.0.256' }
+#  - "dollydk01: 127.0.0.251"
+#  - "dollydk02: 127.0.0.252"
+#  - "dollydk03: 127.0.0.253"
+#  - "dollydk04: 127.0.0.254"
+#  - "dollydk05: 127.0.0.255"
+#  - "dollydk06: 127.0.0.256"
