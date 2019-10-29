@@ -8,16 +8,9 @@
     stop_timeout: "{{ docker_stop_timeout }}"
     tty: "{{ docker_use_docker_connection }}"
     exposed_ports: "{{ docker_exposed }}"
-    #network_mode: "{{ docker_network_mode }}"
+    network_mode: "{{ docker_network_mode }}"
     volumes: "{{ docker_volumes }}"
     restart: "{{ docker_restart|default(omit) }}"
     pull: "{{ docker_pull|default(omit) }}"
     command: "{{ docker_command|default(omit) }}"
   with_items: "{{ docker_inventory_group }}"
-
-#- name: Connect Containers to a Docker Network
-#  docker_network:
-#    name: "{{ docker_network }}"
-#    connected: "{{ item }}"
-#    appends: yes
-#  with_items: "{{ docker_inventory_group }}"
