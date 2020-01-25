@@ -1,9 +1,6 @@
 - name: Create a Docker Network
   docker_network:
     name: "{{ docker_network }}"
-  #  connected: "{{ item }}"
-  #  appends: yes
-  #with_items: "{{ docker_inventory_group }}"
 
 - name: add port 4243 to localhost
   iptables:

@@ -8,7 +8,6 @@
     stop_timeout: "{{ docker_stop_timeout }}"
     tty: "{{ docker_use_docker_connection }}"
     exposed_ports: "{{ docker_exposed }}"
-    network_mode: "{{ docker_network_mode }}"
     volumes: "{{ docker_volumes }}"
     restart: "{{ docker_restart|default(omit) }}"
     pull: "{{ docker_pull|default(omit) }}"
