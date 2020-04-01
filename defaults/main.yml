@@ -1,43 +1,42 @@
 ---
-docker_inventory_group: [ 'dollydk01', 'dollydk02', 'dollydk03',]
-docker_image_default: "tmeralus/ansible-node"
+# Variables that define which compose files will be deployed
+use_centos_base_images: "yes"
+use_ubuntu_base_images: "yes"
+
+# Docker variables
+docker_inventory_group: [ 'dolly01', 'dolly02', 'dolly03',]
+docker_image_default: "tmeralus/centos7"
+docker_inventory_group2: [ 'dolly04', 'dolly05', 'dolly06',]
+docker_image_default2: "tmeralus/ansible-node"
 docker_groups: [ 'net-docks', ]
 docker_privileged: true
 docker_state: started
 docker_use_tls: true
 docker_stop_timeout: 1
+docker_pkgs: [ 'docker', 'docker-compose' ]
+docker_python_pip_ver: 3.6
+docker_pip3x_pkgs: [ 'docker>4.1.0', 'docker-compose>1.17.1' ]
 docker_use_docker_connection: true
-docker_exposed:
-  - 80
-  - 443
-  - 6379
-  - 26379
-  - 6380
-  - 26380
-  - 6381
-  - 26381
-  - 25
+docker_exposed: [ "80", "443", "6379", "26379", "25" ]
 docker_ports: "22"
 docker_network: docknet
-docker_network_loop: [ 'docknet1', 'docknet2', 'docknet3', 'docknet4', 'docknet5', 'docknet6', ]
+docker_network_loop: [ 'docknet1', 'dockweb',]
+#docker_network_loop: [ 'docversion: '2' ]
 docker_network_mode: host
-docker_volumes: "/tmp"
 docker_restart: 0
 docker_pull: 0
 docker_command: ""
 docker_ip: "127.0.0.1"
 docker_subnet: 127.0.0.0/16
 docker_gateway: 127.0.0.1
-docker_iprange: [ '127.0.0.251', '127.0.0.252', '127.0.0.253', '127.0.0.254', '127.0.0.255', '127.0.0.256', ]
-#  - { name: 'dollydk01', groups: '127.0.0.251' }
-#  - { name: 'dollydk02', groups: '127.0.0.252' }
-#  - { name: 'dollydk03', groups: '127.0.0.253' }
-#  - { name: 'dollydk04', groups: '127.0.0.254' }
-#  - { name: 'dollydk05', groups: '127.0.0.255' }
-#  - { name: 'dollydk06', groups: '127.0.0.256' }
-#  - "dollydk01: 127.0.0.251"
-#  - "dollydk02: 127.0.0.252"
-#  - "dollydk03: 127.0.0.253"
-#  - "dollydk04: 127.0.0.254"
-#  - "dollydk05: 127.0.0.255"
-#  - "dollydk06: 127.0.0.256"
+docker_iprange: [ '127.0.0.251',]
+
+monitoring_images:
+  -"tmeralus/nagios-plugins"
+
+#docker_volumes:
+#  - "/opt/docker/"
+#  - "/opt/docker/data"
+
+# Docker data dir location if not default
+docker_data_volume: "/opt/docker/data"
