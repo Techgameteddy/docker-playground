@@ -1,6 +1,5 @@
 
 # Install dependancies
-- import_tasks: "0_setup_requirements.yml"
-#- import_tasks: "dock_network.yml"
+- import_tasks: "0_setup_requirements.yml" 
 - import_tasks: "1_dock_inventory.yml"
-  when: (docker_inventory_group | length) > 0 
+- import_tasks: "dock_nagios.yml"

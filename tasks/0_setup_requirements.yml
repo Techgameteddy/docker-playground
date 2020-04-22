@@ -10,9 +10,7 @@
   file:
     path: "{{ docker_volumes }}"
     state: directory
-  with_items:
-    - "/opt/docker/"
-    - "/opt/docker/data"
+  become: true
 
 # Install Docker and docker-compose .
 - name: Install docker packages
@@ -23,12 +21,12 @@
 
 
 # Install python based docker packages 2.x
-- name: Install docker packages for python 2.7
+- name: Install docker packages for python 
   pip:
     name:
       - docker>4.1.0
       - docker-compose>1.17.1
-    executable: pip2.7
+#    executable: pip2.7
 
 # Install python based docker packages 3.x
 #- name: "Install docker packages for python {{ docker_python_pip_ver }}"
