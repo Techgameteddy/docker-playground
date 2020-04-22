@@ -1,7 +1,0 @@
-- name: Spin up Nagios Container
-  docker_compose:
-    project_src: "/compose/docker-nagios-setup"
-  register: nagios_check
-
-- debug:
-    var: nagios_check
